@@ -168,6 +168,9 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+-- Enable winbar
+vim.o.winbar = '%<%f'
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
