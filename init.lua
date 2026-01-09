@@ -314,6 +314,36 @@ require('lazy').setup({
     },
   },
 
+  {
+    'folke/snacks.nvim',
+    lazy = false,
+    priority = 1000,
+    opts = {
+      bigfile = { enabled = false }, -- Look into this later
+      dashboard = { enabled = true }, -- Look into this later
+      explorer = { enabled = false }, -- Look into this later
+      indent = { enabled = false }, -- Look into this later
+      input = { enabled = false }, -- Look into this later
+      picker = { enabled = true },
+      notifier = { enabled = false }, -- Look into this later
+      quickfile = { enabled = false }, -- Look into this later
+      scope = { enabled = false }, -- Look into this later
+      scroll = { enabled = false }, -- Look into this later
+      statuscolumn = { enabled = false }, -- Look into this later
+      words = { enabled = false }, -- Look into this later
+    },
+
+    keys = {
+      {
+        '<leader>sf',
+        function()
+          Snacks.picker.files()
+        end,
+        desc = 'Find Files',
+      },
+    },
+  },
+
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
   -- This is often very useful to both group configuration, as well as handle
@@ -458,7 +488,11 @@ require('lazy').setup({
       local builtin = require 'telescope.builtin'
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-      vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+      -- vim.keymap.set('n', '<leader>sf', function()
+      --   builtin.find_files {
+      --     no_ignore = true,
+      --   }
+      -- end, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
