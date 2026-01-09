@@ -286,6 +286,31 @@ require('lazy').setup({
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
       },
+      current_line_blame = true,
+      current_line_blame_opts = {
+        virt_text = true,
+        virtual_text_pos = 'right_align',
+        delay = 400,
+        ignore_whitespace = false,
+        use_focus = true,
+      },
+      on_attach = function(bufnr)
+        local gitsigns = require 'gitsigns'
+
+        local function map(mode, l, r, opts)
+          opts = opts or {}
+          opts.buffer = bufnr
+          vim.keymap.set(mode, l, r, opts)
+        end
+
+        map('n', 'gbl', function()
+          gitsigns.blame_line { full = true }
+        end, { desc = '[G]it [B]lame [L]ine' })
+
+        map('n', 'gbf', function()
+          gitsigns.blame {}
+        end, { desc = '[G]}it [B]lame [F]ile' })
+      end,
     },
   },
 
