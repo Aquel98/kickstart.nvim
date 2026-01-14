@@ -171,6 +171,9 @@ vim.o.confirm = true
 -- Enable winbar
 vim.o.winbar = '%<%f'
 
+-- Set grep command
+vim.o.grepprg = 'rg --vimgrep'
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
