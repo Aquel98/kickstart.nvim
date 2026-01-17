@@ -332,7 +332,18 @@ require('lazy').setup({
       notifier = { enabled = false },
       quickfile = { enabled = false },
       scope = { enabled = true },
-      scroll = { enabled = false }, -- Look into this later
+      scroll = {
+        enabled = true,
+        animate = {
+          duration = { step = 10, total = 100 },
+          easing = 'linear',
+        },
+        animate_repeat = {
+          delay = 100,
+          duration = { step = 5, total = 50 },
+          easing = 'linear',
+        },
+      },
       statuscolumn = { enabled = false }, -- Look into this later
       words = { enabled = false }, -- Look into this later
     },
