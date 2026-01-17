@@ -324,8 +324,8 @@ require('lazy').setup({
     opts = {
       bigfile = { enabled = false }, -- Look into this later
       dashboard = { enabled = true }, -- Look into this later
-      indent = { enabled = false }, -- Look into this later
       explorer = { enabled = true },
+      indent = { enabled = true },
       input = { enabled = false }, -- Look into this later
       picker = { enabled = true },
       notifier = { enabled = false }, -- Look into this later
