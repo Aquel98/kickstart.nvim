@@ -324,8 +324,8 @@ require('lazy').setup({
     opts = {
       bigfile = { enabled = false }, -- Look into this later
       dashboard = { enabled = true }, -- Look into this later
-      explorer = { enabled = false }, -- Look into this later
       indent = { enabled = false }, -- Look into this later
+      explorer = { enabled = true },
       input = { enabled = false }, -- Look into this later
       picker = { enabled = true },
       notifier = { enabled = false }, -- Look into this later
@@ -358,6 +358,13 @@ require('lazy').setup({
           Snacks.picker.grep()
         end,
         desc = 'Grep',
+      },
+      {
+        '<leader>e',
+        function()
+          Snacks.explorer()
+        end,
+        desc = 'File Explorer',
       },
     },
   },
@@ -1089,7 +1096,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
-  require 'kickstart.plugins.neo-tree',
+  -- require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
