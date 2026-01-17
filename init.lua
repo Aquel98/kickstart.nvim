@@ -328,6 +328,7 @@ require('lazy').setup({
       indent = { enabled = true },
       input = { enabled = false }, -- Look into this later
       picker = { enabled = true },
+      lazygit = { enabled = true },
       notifier = { enabled = false }, -- Look into this later
       quickfile = { enabled = false }, -- Look into this later
       scope = { enabled = false }, -- Look into this later
@@ -365,6 +366,13 @@ require('lazy').setup({
           Snacks.explorer()
         end,
         desc = 'File Explorer',
+      },
+      {
+        '<leader>lg',
+        function()
+          Snacks.lazygit()
+        end,
+        desc = 'Lazygit',
       },
     },
   },
