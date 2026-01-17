@@ -326,12 +326,12 @@ require('lazy').setup({
       dashboard = { enabled = true }, -- Look into this later
       explorer = { enabled = true },
       indent = { enabled = true },
-      input = { enabled = false }, -- Look into this later
+      input = { enabled = false },
       picker = { enabled = true },
       lazygit = { enabled = true },
-      notifier = { enabled = false }, -- Look into this later
-      quickfile = { enabled = false }, -- Look into this later
-      scope = { enabled = false }, -- Look into this later
+      notifier = { enabled = false },
+      quickfile = { enabled = false },
+      scope = { enabled = true },
       scroll = { enabled = false }, -- Look into this later
       statuscolumn = { enabled = false }, -- Look into this later
       words = { enabled = false }, -- Look into this later
