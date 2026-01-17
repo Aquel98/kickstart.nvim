@@ -322,8 +322,8 @@ require('lazy').setup({
     lazy = false,
     priority = 1000,
     opts = {
-      bigfile = { enabled = false }, -- Look into this later
-      dashboard = { enabled = true }, -- Look into this later
+      bigfile = { enabled = false },
+      dashboard = { enabled = true },
       explorer = { enabled = true },
       indent = { enabled = true },
       input = { enabled = false },
@@ -344,8 +344,8 @@ require('lazy').setup({
           easing = 'linear',
         },
       },
-      statuscolumn = { enabled = false }, -- Look into this later
-      words = { enabled = false }, -- Look into this later
+      statuscolumn = { enabled = false },
+      words = { enabled = false },
     },
 
     keys = {
@@ -1055,6 +1055,8 @@ require('lazy').setup({
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
+
+      require('mini.sessions').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
