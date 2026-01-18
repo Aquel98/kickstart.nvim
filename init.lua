@@ -386,13 +386,6 @@ require('lazy').setup({
         desc = 'Lazygit',
       },
       {
-        '<leader>ss',
-        function()
-          Snacks.picker.lsp_synmbols()
-        end,
-        desc = 'LSP Symbols',
-      },
-      {
         '<leader>sd',
         function()
           Snacks.picker.diagnostics()
@@ -448,6 +441,13 @@ require('lazy').setup({
           Snacks.picker.lsp_type_definitions()
         end,
         desc = 'Goto T[y]pe Definition',
+      },
+      {
+        '<leader>ss',
+        function()
+          Snacks.picker.lsp_symbols()
+        end,
+        desc = 'LSP Symbols',
       },
       {
         '<leader>sS',
@@ -549,6 +549,7 @@ require('lazy').setup({
         { '<leader>sd', icon = { icon = ' ', color = 'red' } },
         { '<leader>lg', icon = { icon = '󰊢 ', color = 'orange' } },
         { '<leader>ss', icon = { icon = '󱤇 ', color = 'cyan' } },
+        { '<leader>sS', icon = { icon = '󱤇 ', color = 'cyan' } },
         { 'gd', icon = { icon = '󰦪 ', color = 'green' } },
         { 'gD', icon = { icon = '󰦩 ', color = 'blue' } },
         { 'gI', icon = { icon = '󰦪 ', color = 'cyan' } },
@@ -783,7 +784,7 @@ require('lazy').setup({
 
           -- Fuzzy find all the symbols in your current workspace.
           --  Similar to document symbols, except searches over your entire project.
-          map('gW', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Open Workspace Symbols')
+          -- map('gW', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Open Workspace Symbols')
 
           -- Jump to the type of the word under your cursor.
           --  Useful when you're not sure what type a variable is and you want to see
