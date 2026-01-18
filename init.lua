@@ -174,6 +174,9 @@ vim.o.winbar = '%<%f'
 -- Set grep command
 vim.o.grepprg = 'rg --vimgrep'
 
+-- TODO: Move rest of options to this file
+require 'options'
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -899,7 +902,8 @@ require('lazy').setup({
           clangd = {
             cmd = {
               'clangd',
-              '--query-driver=/opt/sdks/**/*linux-g++',
+              '--query-driver=' .. vim.g.clangd_query_driver,
+              -- '--query-driver=/opt/sdks/**/*linux-g++',
             },
           },
           ruff = {},
