@@ -435,6 +435,13 @@ require('lazy').setup({
         end,
         desc = 'Goto Implementation',
       },
+      {
+        'gy',
+        function()
+          Snacks.picker.lsp_type_definitions()
+        end,
+        desc = 'Goto T[y]pe Definition',
+      },
     },
   },
 
@@ -517,6 +524,7 @@ require('lazy').setup({
         { 'gd', icon = { icon = '󰦪 ', color = 'green' } },
         { 'gD', icon = { icon = '󰦩 ', color = 'blue' } },
         { 'gI', icon = { icon = '󰦪 ', color = 'cyan' } },
+        { 'gy', icon = { icon = '󰦨 ', color = 'green' } },
         { 'grr', icon = { icon = ' ', color = 'cyan' } },
       },
     },
@@ -750,7 +758,7 @@ require('lazy').setup({
           -- Jump to the type of the word under your cursor.
           --  Useful when you're not sure what type a variable is and you want to see
           --  the definition of its *type*, not where it was *defined*.
-          map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
+          -- map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
 
           -- Switch between header and source file
           map('grs', vim.cmd.LspClangdSwitchSourceHeader, 'Switch Source/Header')
