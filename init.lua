@@ -397,7 +397,7 @@ require('lazy').setup({
         function()
           Snacks.picker.diagnostics()
         end,
-        desc = 'LSP Symbols',
+        desc = 'Diagnostics',
       },
     },
   },
