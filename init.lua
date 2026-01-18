@@ -413,6 +413,13 @@ require('lazy').setup({
         end,
         desc = 'Goto Definition',
       },
+      {
+        'gD',
+        function()
+          Snacks.picker.lsp_declarations()
+        end,
+        desc = 'Goto Declaration',
+      },
     },
   },
 
@@ -493,6 +500,7 @@ require('lazy').setup({
         { '<leader>lg', icon = { icon = '󰊢 ', color = 'orange' } },
         { '<leader>ss', icon = { icon = '󱤇 ', color = 'cyan' } },
         { 'gd', icon = { icon = '󰦪 ', color = 'green' } },
+        { 'gD', icon = { icon = '󰦩 ', color = 'blue' } },
       },
     },
   },
@@ -712,7 +720,7 @@ require('lazy').setup({
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
-          map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+          -- map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
