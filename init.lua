@@ -428,6 +428,13 @@ require('lazy').setup({
         nowait = true,
         desc = 'References',
       },
+      {
+        'gI',
+        function()
+          Snacks.picker.lsp_implementations()
+        end,
+        desc = 'Goto Implementation',
+      },
     },
   },
 
@@ -509,6 +516,7 @@ require('lazy').setup({
         { '<leader>ss', icon = { icon = '󱤇 ', color = 'cyan' } },
         { 'gd', icon = { icon = '󰦪 ', color = 'green' } },
         { 'gD', icon = { icon = '󰦩 ', color = 'blue' } },
+        { 'gI', icon = { icon = '󰦪 ', color = 'cyan' } },
         { 'grr', icon = { icon = ' ', color = 'cyan' } },
       },
     },
@@ -720,7 +728,7 @@ require('lazy').setup({
 
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
-          map('gri', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+          -- map('gri', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
 
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
