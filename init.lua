@@ -406,6 +406,13 @@ require('lazy').setup({
         end,
         desc = 'Resume',
       },
+      {
+        'gd',
+        function()
+          Snacks.picker.lsp_definitions()
+        end,
+        desc = 'Goto Definition',
+      },
     },
   },
 
@@ -485,6 +492,7 @@ require('lazy').setup({
         { '<leader>sd', icon = { icon = ' ', color = 'red' } },
         { '<leader>lg', icon = { icon = '󰊢 ', color = 'orange' } },
         { '<leader>ss', icon = { icon = '󱤇 ', color = 'cyan' } },
+        { 'gd', icon = { icon = '󰦪 ', color = 'green' } },
       },
     },
   },
@@ -700,7 +708,7 @@ require('lazy').setup({
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.
-          map('grd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+          -- map('grd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
