@@ -420,6 +420,14 @@ require('lazy').setup({
         end,
         desc = 'Goto Declaration',
       },
+      {
+        'grr',
+        function()
+          Snacks.picker.lsp_references()
+        end,
+        nowait = true,
+        desc = 'References',
+      },
     },
   },
 
@@ -501,6 +509,7 @@ require('lazy').setup({
         { '<leader>ss', icon = { icon = '󱤇 ', color = 'cyan' } },
         { 'gd', icon = { icon = '󰦪 ', color = 'green' } },
         { 'gD', icon = { icon = '󰦩 ', color = 'blue' } },
+        { 'grr', icon = { icon = ' ', color = 'cyan' } },
       },
     },
   },
@@ -707,7 +716,7 @@ require('lazy').setup({
           map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
 
           -- Find references for the word under your cursor.
-          map('grr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+          -- map('grr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
 
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
