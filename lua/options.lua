@@ -1,3 +1,5 @@
+vim.o.exrc = true
+
 --- Copied from the nvim repo of maxniia: https://github.com/MaxNiia/nvim/
 local settings = {}
 

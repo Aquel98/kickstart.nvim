@@ -899,13 +899,7 @@ require('lazy').setup({
       local servers = {
         -- Servers installed via Mason
         mason = {
-          clangd = {
-            cmd = {
-              'clangd',
-              '--query-driver=' .. vim.g.clangd_query_driver,
-              -- '--query-driver=/opt/sdks/**/*linux-g++',
-            },
-          },
+          clangd = {},
           ruff = {},
           -- gopls = {},
           basedpyright = {},
@@ -965,18 +959,21 @@ require('lazy').setup({
       -- define a custom server config that's unavailable on nvim-lspconfig.
       for server, config in pairs(vim.tbl_extend('keep', servers.mason, servers.others)) do
         if not vim.tbl_isempty(config) then
-          vim.lsp.config(server, config)
+          -- vim.lsp.config(server, config)
         end
       end
-      require('mason-lspconfig').setup {
-        ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-        automatic_enable = true, -- automatically runs vim.lsp.enable() for all servers installed via Mason
-      }
+      -- require('mason-lspconfig').setup {
+      --   ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
+      --   automatic_enable = true, -- automatically runs vim.lsp.enable() for all servers installed via Mason
+      -- }
 
       -- Manually run vim.lsp.enable for all language servers that are *not* installed via Mason
       if not vim.tbl_isempty(servers.others) then
         vim.lsp.enable(vim.tbl_keys(servers.others))
       end
+      vim.lsp.config('clangd', {})
+      vim.lsp.enable(vim.tbl_keys(servers.mason))
+      vim.lsp.enable 'clangd'
     end,
   },
 
