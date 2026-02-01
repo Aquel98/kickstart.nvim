@@ -29,7 +29,7 @@ vim.o.showmode = false
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'
+	vim.o.clipboard = 'unnamedplus'
 end)
 
 -- Enable break indent
@@ -87,6 +87,8 @@ vim.o.winbar = '%<%f'
 -- Set grep command
 vim.o.grepprg = 'rg --vimgrep'
 
+vim.o.expandtab = true
+
 -- Sets the startup order of neovim.
 vim.o.exrc = true
 
@@ -99,26 +101,26 @@ local settings = {}
 ---@field description string
 ---@param config options.SettingConfig
 local setting = function(config)
-  if vim.g[config.name] == nil then
-    vim.g[config.name] = config.default_value
-  end
+	if vim.g[config.name] == nil then
+		vim.g[config.name] = config.default_value
+	end
 
-  table.insert(settings, config)
+	table.insert(settings, config)
 end
 
 setting {
-  name = 'clangd_query_driver',
-  default_value = '/usr/bin/clang, /usr/bin/clang++',
-  description = 'Query driver for clangd, where clangd retrieves standard library symbols from.',
+	name = 'clangd_query_driver',
+	default_value = '/usr/bin/clang, /usr/bin/clang++',
+	description = 'Query driver for clangd, where clangd retrieves standard library symbols from.',
 }
 
 setting {
-  name = 'copyright_text',
-  default_value = {
-    'Copyright',
-    'Year: {YEAR}',
-  },
-  description = 'Text to insert when copyright is invoked.',
+	name = 'copyright_text',
+	default_value = {
+		'Copyright',
+		'Year: {YEAR}',
+	},
+	description = 'Text to insert when copyright is invoked.',
 }
 
 vim.g.available_settins = settings
