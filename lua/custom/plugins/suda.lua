@@ -2,7 +2,7 @@
 -- https://github.com/lambdalisue/vim-suda
 
 return {
-  'lambdalisue/vim-suda',
-  version = '*',
-  lazy = false,
+   "lambdalisue/vim-suda",
+   version = "*",
+   lazy = false,
 }

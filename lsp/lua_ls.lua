@@ -19,23 +19,21 @@ local config = {
          completion = {
             callSnippet = "Replace",
          },
-         -- Formatting through 'format' doesn't seem to work for the formatter used by lua_ls (EmmyLuaCodeStyle), however using the .editorconfig file seeems to work. The editor config only applies to the current project.
+         -- Formatting through 'format' doesn't seem to work for the formatter used by lua_ls (EmmyLuaCodeStyle), however using the .editorconfig file seems to work. The editor config only applies to the current project.
          diagnostics = { globals = { "vim" } },
       },
    },
    capabilities = {
-      {
-         textdocument = {
-            completion = {
-               completionItem = {
-                  snippetSupport = true,
-               },
-            }
-         }
+      textDocument = {
+         completion = {
+            completionItem = {
+               snippetSupport = true,
+            },
+         },
       },
    },
 }
 
-vim.tbl_deep_extend("force", require("lsp_capabilities"), config.capabilities)
+config.capabilities = vim.tbl_deep_extend("force", require("lsp_capabilities"), config.capabilities)
 
 return config
