@@ -1088,14 +1088,15 @@ require("lazy").setup({
                          },
                          { -- Highlight, edit, and navigate code
                             "nvim-treesitter/nvim-treesitter",
-                            branch = "master",
+                            branch = "main",
+                            lazy = false,
                             build = ":TSUpdate",
-                            main = "nvim-treesitter.configs", -- Sets main module to use for opts
-                            -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-                            opts = {
-                               ensure_installed = {
+                            config = function ()
+                               -- Parsers to be installed
+                               local ensure_installed = {
                                   "bash",
                                   "c",
+                                  "cpp",
                                   "diff",
                                   "html",
                                   "lua",
@@ -1105,18 +1106,112 @@ require("lazy").setup({
                                   "query",
                                   "vim",
                                   "vimdoc",
-                               },
-                               -- Autoinstall languages that are not installed
-                               auto_install = true,
-                               highlight = {
-                                  enable = true,
-                                  -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-                                  --  If you are experiencing weird indenting issues, add the language to
-                                  --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-                                  additional_vim_regex_highlighting = { "ruby" },
-                               },
-                               indent = { enable = true, disable = { "ruby" } },
-                            },
+                               }
+                               local file_types = {
+                                  "bash",
+                                  "bzl",
+                                  "c",
+                                  "c3",
+                                  "checkhealth",
+                                  "cmake",
+                                  "cmakecache",
+                                  "cpp",
+                                  "css",
+                                  "csv",
+                                  "cterm",
+                                  "diff",
+                                  "dockerfile",
+                                  "dot",
+                                  "doxygen",
+                                  "editorconfig",
+                                  "fish",
+                                  "gdb",
+                                  "gdscript",
+                                  "gdshader",
+                                  "gitattributes",
+                                  "gitcommit",
+                                  "gitconfig",
+                                  "gitignore",
+                                  "gitolite",
+                                  "gitrebase",
+                                  "gitsendemail",
+                                  "glsl",
+                                  "haskell",
+                                  "html",
+                                  "javascript",
+                                  "jsdoc",
+                                  "lua",
+                                  "printf",
+                                  "regex",
+                                  "vimdoc",
+                                  "typescript",
+                                  "help",
+                                  "idl",
+                                  "json",
+                                  "json5",
+                                  "jsonnet",
+                                  "ld",
+                                  "less",
+                                  "lhaskell",
+                                  "lsp_markdown",
+                                  "make",
+                                  "man",
+                                  "manual",
+                                  "markdown",
+                                  "mermaid",
+                                  "messages",
+                                  "ninja",
+                                  "obj",
+                                  "objc",
+                                  "objcpp",
+                                  "objdump",
+                                  "odin",
+                                  "pandoc",
+                                  "pdf",
+                                  "proto",
+                                  "python",
+                                  "python2",
+                                  "requirements",
+                                  "rust",
+                                  "sed",
+                                  "sh",
+                                  "shada",
+                                  "shaderslang",
+                                  "sshconfig",
+                                  "sshdconfig",
+                                  "stylus",
+                                  "systemd",
+                                  "tmux",
+                                  "toml",
+                                  "valgrind",
+                                  "vim",
+                                  "viminfo",
+                                  "vimnormal",
+                                  "wget",
+                                  "wget2",
+                                  "whitespace",
+                                  "winbatch",
+                                  "xml",
+                                  "yacc",
+                                  "yaml",
+                                  "zig",
+                               }
+
+                               require("nvim-treesitter").install(ensure_installed)
+                               require("nvim-treesitter").update()
+
+                               vim.api.nvim_create_autocmd("FileType", {
+                                  pattern = file_types,
+                                  callback = function ()
+                                     -- Syntax highlighting, provided by neovim
+                                     vim.treesitter.start()
+                                     -- Folds, provided by neovim
+                                     vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+                                     -- Indentation, provided by nvim-treesitter
+                                     vim.bo.indentexpr = "v:lua.reqire'nvim-treesitter'.indentexpr()"
+                                  end,
+                               })
+                            end,
                             -- There are additional nvim-treesitter modules that you can use to interact
                             -- with nvim-treesitter. You should go explore a few and see what interests you:
                             --
@@ -1124,7 +1219,6 @@ require("lazy").setup({
                             --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
                             --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
                          },
-
                          -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
                          -- init.lua. If you want these files, they are in the repository, so you can just download them and
                          -- place them in the correct locations.
