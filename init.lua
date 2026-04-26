@@ -969,6 +969,7 @@ require("lazy").setup({
                                      --
 
                                      lua_ls = {},
+                                     typos_lsp = {},
                                   },
                                   -- Servers installed manually (currently empty)
                                   others = {},
