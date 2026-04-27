@@ -6,6 +6,8 @@
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.g.autoindent = true
+vim.g.smartindent = true
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
@@ -28,7 +30,7 @@ vim.o.showmode = false
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.schedule(function()
+vim.schedule(function ()
    vim.o.clipboard = "unnamedplus"
 end)
 
@@ -100,7 +102,7 @@ local settings = {}
 ---@field default_value string|integer|boolean|table
 ---@field description string
 ---@param config options.SettingConfig
-local setting = function(config)
+local setting = function (config)
    if vim.g[config.name] == nil then
       vim.g[config.name] = config.default_value
    end

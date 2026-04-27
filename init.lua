@@ -408,6 +408,13 @@ require("lazy").setup({
                                   desc = "File Explorer",
                                },
                                {
+                                  "<leader>E",
+                                  function ()
+                                     Snacks.reveal()
+                                  end,
+                                  desc = "File Explorer",
+                               },
+                               {
                                   "<leader>lg",
                                   function ()
                                      Snacks.lazygit()
@@ -1243,7 +1250,7 @@ require("lazy").setup({
                                      -- Folds, provided by neovim
                                      vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
                                      -- Indentation, provided by nvim-treesitter
-                                     vim.bo.indentexpr = "v:lua.reqire'nvim-treesitter'.indentexpr()"
+                                     vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
                                   end,
                                })
                             end,
