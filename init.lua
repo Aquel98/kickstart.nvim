@@ -1148,6 +1148,8 @@ require("lazy").setup({
                                   "query",
                                   "vim",
                                   "vimdoc",
+                                  "json",
+                                  "gitcommit",
                                }
                                local file_types = {
                                   "bash",
