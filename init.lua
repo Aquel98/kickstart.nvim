@@ -982,7 +982,7 @@ require("lazy").setup({
                                   others = {},
                                }
                                -- Lsp logging, to see where it gets saved, enter the command ":lua print(vim.lsp.get_log_path())"
-                               -- vim.lsp.set_log_level 'trace'
+                               vim.lsp.log.set_level("off")
                                -- require('vim.lsp.log').set_format_func(vim.inspect)
 
                                -- Ensure the servers and tools above are installed
