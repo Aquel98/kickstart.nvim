@@ -1263,6 +1263,19 @@ require("lazy").setup({
                             --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
                             --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
                          },
+                         {
+                            "MagicDuck/grug-far.nvim",
+                            -- Note (lazy loading): grug-far.lua defers all it's requires so it's lazy by default
+                            -- additional lazy config to defer loading is not really needed...
+                            config = function ()
+                               -- optional setup call to override plugin options
+                               -- alternatively you can set options with vim.g.grug_far = { ... }
+                               require("grug-far").setup({
+                                  -- options, see Configuration section below
+                                  -- there are no required options atm
+                               })
+                            end,
+                         },
                          -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
                          -- init.lua. If you want these files, they are in the repository, so you can just download them and
                          -- place them in the correct locations.
