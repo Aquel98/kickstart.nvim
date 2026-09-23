@@ -367,7 +367,7 @@ require("lazy").setup({
                             opts = {
                                bigfile = { enabled = false },
                                dashboard = { enabled = true },
-                               explorer = { enabled = true },
+                               explorer = { enabled = true, trash = false },
                                indent = { enabled = true },
                                input = { enabled = false },
                                picker = { enabled = true },
